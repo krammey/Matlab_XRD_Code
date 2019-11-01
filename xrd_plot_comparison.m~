@@ -1,7 +1,5 @@
 function xrd_plot_comparison(files)
-
-% NOTES:
-% After running this you can adjust graph properties by running: 
+%  After running this you can adjust graph properties by running: 
 % legend('1','2','3')
 % title('Enter title')
 % xlim([xi xf])
@@ -10,15 +8,16 @@ function xrd_plot_comparison(files)
 % export_fig('./Figures/20191101_KOH-NaOHComparison.pdf')
 % export_fig('./Figures/20191101_KOH-NaOHComparison.fig')
 
+
+
+cd ~/GoogleDrive/1_CMU/0_Research/02_XRD/
 addpath ~/Documents/MATLAB/xrdmlread/ ~/Documents/MATLAB/xmltree/
 addpath('/Users/trins/Documents/MATLAB/altmany-export_fig-9d97e2c')
-addpath('~/GoogleDrive/1_CMU/0_Research/02_XRD/Matlab_XRD_Code/')
 
 
 %-----------------------------------
 % Create 'files' input
 %-----------------------------------
-% cd ~/GoogleDrive/1_CMU/0_Research/02_XRD/
 % Before running this, you need to create 'files' as a cell 
 % containing the filenames
 % file1 = '20191024-UncycledBiMnO2-from-_-with-monochrom.xrdml';
@@ -47,7 +46,7 @@ d = [];
 LEG = cell(length(files),1);
 for i = 1:length(files)
     data_temp = df{i}.data(MIN <= df{i}.x & df{i}.x <= MAX);
-%     length(data_temp)
+    length(data_temp)
     d = [d; data_temp];
     LEG{i} =  df{i}.filename;
 end
