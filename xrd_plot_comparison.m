@@ -1,32 +1,30 @@
 function xrd_plot_comparison(files)
+% cd ~/GoogleDrive/1_CMU/0_Research/02_XRD/
+% addpath ~/Documents/MATLAB/xrdmlread/ ~/Documents/MATLAB/xmltree/
+% addpath('/Users/trins/Documents/MATLAB/altmany-export_fig-9d97e2c')
+
+
+%-----------------------------------
+% Create 'files' input
+%-----------------------------------
+% Before running this, you need to create 'files' as a cell 
+% containing the filenames
+% files = cell(3,1);
+% files{1} = file1;
+% files{2} = file2;
+% files{3} = file3;
+
+
 %-----------------------------------
 % Load data files
 %-----------------------------------
-
-% MnO2 files ------------------------
-% file = 'Katrina-MnO2training2.xrdml';
-% file = 'Katrina-MnO2training_1.xrdml';
-% file = 'Katrina-Cycled-MnO2Bi2O3C-From-Sept42019.xrdml';
-% file = 'Katrina-Cycled-MnO2Bi2O3C-From-Sept42019-with-monochrometer.xrdml';;
-% file = 'Katrina-UncycledMnO2Bi2O3C.xrdml';
-% file1 = '20191024-CycledMnO2-from-20190927-with-monochrom.xrdml'; % 0.02 mA & 0.2 mA
-% file2 = '20191017-Bi-MnO2-20191003-with-monochrom.xrdml'; % 0.9 mA
-file3 = '20191101-NaOH-CycledMnO2-from-20191030-with-monochrom.xrdml';
-file2 = '20191101-CycledMnO2-from-20191028-with-monochrom.xrdml';
-file1 = '20191024-UncycledBiMnO2-from-_-with-monochrom.xrdml';
-
-% Ni ------------------------
-% file = 'Katrina-CycledNiFoam-From-Sept42019.xrdml';
-% file = 'Katrina-CycledNiFoam-From-Sept192019.xrdml';
-% file = 'Katrina-NiFoilFrom20191003.xrdml';
-
-% SS ------------------------
-% file = 'Katrina-StainlessSteelMesh.xrdml';
+d = cell(length(files),1);
+for i=1:length(files)
+    d{i} = XRDMLread(files{i});
+end
 
 
-% cd ~/GoogleDrive/1_CMU/0_Research/02_XRD/
-addpath ~/Documents/MATLAB/xrdmlread/ ~/Documents/MATLAB/xmltree/
-addpath('/Users/trins/Documents/MATLAB/altmany-export_fig-9d97e2c')
+
 
 d1 = XRDMLread(file1);
 d2 = XRDMLread(file2);
